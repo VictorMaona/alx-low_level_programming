@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+/**
+ * add -two integers
+ * @a: First integer
+ * @b: Second integer
+ * Return: sum a and b
+ */
+int add(int a, int b) {
+    return a + b;
+}
+
+/**
+ * sub -one integer from another
+ * @a: First integer
+ * @b: Second integer
+ * Return: result to subtracting b from a
+ */
+int sub(int a, int b) {
+    return a - b;
+}
+
+/**
+ * mul -Multiplies two integers
+ * @a: First integer
+ * @b: Second integer
+ * Return: product of a and b
+ */
+int mul(int a, int b) {
+    return a * b;
+}
+
+/**
+ * div -Divid one integer by another
+ * @a: Numerator
+ * @b: Denominator is 0
+ * Return: integer divid a by b
+ */
+int div(int a, int b) {
+    if (b != 0) {
+        return a / b;
+    }
+    return 0;
+}
+
+/**
+ * mod -Excute remainder of division by two integers
+ * @a: Dividend
+ * @b: Divisor is 0
+ * Return: remainder of divid a by b returning 0
+ */
+int mod(int a, int b) {
+    if (b != 0) {
+        return a % b;
+    }
+    return 0;
+}

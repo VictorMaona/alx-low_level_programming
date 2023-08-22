@@ -1,0 +1,309 @@
+#include <unistd.h>
+
+/**
+ * _putchar - checks for alphabetic character
+ * @c: character to print
+ * Return: character unsigned
+ */
+int _putchar(char c) {
+    return write(1, &c, 1);
+}
+
+/**
+ * _islower - verifies whether char is lowercase
+ * @c: Character be checked
+ * Return: 1 if character is lowercase 0 output
+ */
+int _islower(int c) {
+    return (c >= 'a' && c <= 'z');
+}
+
+/**
+ * _isalpha - verifies alphabetic char existence
+ * @c: Char to check
+ * Return: 1 character is alphabetic 0 otherwise
+ */
+int _isalpha(int c) {
+    return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}
+
+/**
+ * _abs - verifies integer absolute value
+ * @n: Integer to find absolute value
+ * Return: absolute value n
+ */
+int _abs(int n) {
+    return (n < 0) ? -n : n;
+}
+
+/**
+ * _isupper - verifies whether char is capital
+ * @c: Character be checked
+ * Return: 1 character is uppercase 0 otherwise
+ */
+int _isupper(int c) {
+    return (c >= 'A' && c <= 'Z');
+}
+
+/**
+ * _isdigit - verifies if char is a digit
+ * @c: char be checked
+ * Return: 1  character is  digit 0 otherwise
+ */
+int _isdigit(int c) {
+    return (c >= '0' && c <= '9');
+}
+
+/**
+ * _strlen - calculates string length that has null end
+ * @s: String to find length
+ * Return: length of string
+ */
+int _strlen(char *s) {
+    int len = 0;
+    while (*s != '\0') {
+        len++;
+        s++;
+    }
+    return len;
+}
+
+/**
+ * _puts - returns string with null end and newline after
+ * @s: string to print
+ */
+void _puts(char *s) {
+    while (*s != '\0') {
+        _putchar(*s);
+        s++;
+    }
+    _putchar('\n');
+}
+
+/**
+ * *_strcpy - string null end from one place to another
+ * @src: The source string
+ * @dest: Destination of buffer
+ * Return: the destination buffer
+ */
+char *_strcpy(char *dest, char *src) {
+    char *originalDest = dest;
+    while (*src != '\0') {
+        *dest = *src;
+        dest++;
+        src++;
+    }
+    *dest = '\0';
+    return originalDest;
+}
+
+/**
+ * _atoi - string is changed into integer
+ * @s: string to convert
+ * Return: integer expected to be converted
+ */
+int _atoi(char *s) {
+    int sign = 1;
+    int result = 0;
+
+    if (*s == '-') {
+        sign = -1;
+        s++;
+    }
+
+    while (*s >= '0' && *s <= '9') {
+        result = result * 10 + (*s - '0');
+        s++;
+    }
+
+    return result * sign;
+}
+
+/**
+ * _strcat - joins two strings with null ends
+ * @dest: destination buffer
+ * @src: source of string
+ * Return: address for destination buffer
+ */
+char *_strcat(char *dest, char *src) {
+    char *originalDest = dest;
+    while (*dest != '\0') {
+        dest++;
+    }
+    while (*src != '\0') {
+        *dest = *src;
+        dest++;
+        src++;
+    }
+    *dest = '\0';
+    return originalDest;
+}
+
+/**
+ * _strncat - char chain from source to destination
+ * @src: source string
+ * @dest: destination buffer
+ * @n: number of characters to chain
+ * Return: destination buffer
+ */
+char *_strncat(char *dest, char *src, int n) {
+    char *originalDest = dest;
+    while (*dest != '\0') {
+        dest++;
+    }
+    while (*src != '\0' && n > 0) {
+        *dest = *src;
+        dest++;
+        src++;
+        n--;
+    }
+    *dest = '\0';
+    return originalDest;
+}
+
+/**
+ * _strncpy - char are copied from source to destination
+ * @src: Source string
+ * @n: number of char to copy
+ * @dest: destination buffer
+ * Return: address of the destine
+ */
+char *_strncpy(char *dest, char *src, int n) {
+    char *originalDest = dest;
+    while (*src != '\0' && n > 0) {
+        *dest = *src;
+        dest++;
+        src++;
+        n--;
+    }
+    while (n > 0) {
+        *dest = '\0';
+        dest++;
+        n--;
+    }
+    return originalDest;
+}
+
+/**
+ * _strcmp - two strings are compared
+ * @s1: first string
+ * @s2: second string
+ * Return: greater than, equal to less than 0
+ */
+int _strcmp(char *s1, char *s2) {
+    while (*s1 == *s2) {
+        if (*s1 == '\0') {
+            return 0;
+        }
+        s1++;
+        s2++;
+    }
+    return (*s1 - *s2);
+}
+
+/**
+ * _memset - fills memory block with provided value
+ * @b: The value to fill the block with
+ * @s: memory block fill
+ * @n: number of bytes fill
+ * Return: address of memory block
+ */
+char *_memset(char *s, char b, unsigned int n) {
+    char *originalS = s;
+    while (n > 0) {
+        *s = b;
+        s++;
+        n--;
+    }
+    return originalS;
+}
+
+/**
+ * _memcpy - Transfers memory block from source to destination
+ * @n: number of bytes copy
+ * @dest: destination of memory block
+ * @src: source memory block
+ * Return: address of memory block
+ */
+char *_memcpy(char *dest, char *src, unsigned int n) {
+    char *originalDest = dest;
+    while (n > 0) {
+        *dest = *src;
+        dest++;
+        src++;
+        n--;
+    }
+    return originalDest;
+}
+
+/**
+ * _strchr - searches char first appearance in string
+ * @s: string to search
+ * @c: character to search
+ * Return: pointer to first char string
+ */
+char *_strchr(char *s, char c) {
+    while (*s != '\0') {
+        if (*s == c) {
+            return s;
+        }
+        s++;
+    }
+    if (c == '\0') {
+        return s;
+    }
+    return NULL;
+}
+
+/**
+ * _strspn - determines length of string first section set
+ * @s: string to search
+ * @accept: set of char to tally
+ * Return: length of the initial s segment with accept
+ */
+unsigned int _strspn(char *s, char *accept) {
+    unsigned int count = 0;
+    while (*s != '\0' && _strchr(accept, *s) != NULL) {
+        count++;
+        s++;
+    }
+    return count;
+}
+
+/**
+ * _strpbrk - find char from set in a string
+ * @accept: set of char to search
+ * @s: string to search
+ * Return: pointer to char accept s or NULL
+ */
+char *_strpbrk(char *s, char *accept) {
+    while (*s != '\0') {
+        if (_strchr(accept, *s) != NULL) {
+            return s;
+        }
+        s++;
+    }
+    return NULL;
+}
+
+/**
+ * _strstr - find first time substring in string
+ * @haystack: string to be searched within
+ * @needle: substring to search
+ * Return:pointer to needle in haystack or NULL
+ */
+char *_strstr(char *haystack, char *needle) {
+    while (*haystack != '\0') {
+        char *h = haystack;
+        char *n = needle;
+        while (*n != '\0' && *h == *n) {
+            h++;
+            n++;
+        }
+        if (*n == '\0') {
+            return haystack;
+        }
+        haystack++;
+    }
+    return NULL;
+}
