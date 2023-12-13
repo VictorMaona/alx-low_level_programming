@@ -11,7 +11,7 @@
  * @index: Node index within the collection
  * @next: Pointer to the following node
  *
- * Description: Project singly 
+ * Description: Project singly
  * linked list node structure
  */
 typedef struct listint_s
