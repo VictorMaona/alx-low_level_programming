@@ -6,7 +6,7 @@
  * @size: Count of the array elements.
  * @value: Value to look for.
  *
- * Return: The index where the value is located. If not present or array is NULL, return -1.
+ * Return: value is located. If not present or array is NULL, return -1.
  */
 int binary_search(int *array, size_t size, int value)
 {
