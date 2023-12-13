@@ -7,7 +7,7 @@
  * @size: Count of the array elements.
  * @value: Value to look for.
  *
- * Return: The first index where the value is located. If not present or array is NULL, return -1.
+ * Return: If not present or array is NULL, return -1.
  */
 int jump_search(int *array, size_t size, int value)
 {
