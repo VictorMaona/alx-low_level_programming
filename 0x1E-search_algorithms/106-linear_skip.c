@@ -1,8 +1,8 @@
 #include "search_algos.h"
 
 /**
- * linear_skip - looks for a value in an integer skip list that has been sorted.
- * @list: Pointer to the searchable portion of the skip list at the top.
+ * linear_skip - skip list that has been sorted.
+ * @list: Pointer to the searchable portion of the skip list.
  * @value: Value to look for.
  *
  * Return: Return NULL if the list is empty or not existent.
